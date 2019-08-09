@@ -1,0 +1,36 @@
+{
+  "appenders": {
+    "out": {
+      "type": "stdout"
+    },
+    "app": {
+      "type": "dateFile",
+      "filename": "logs/log.log",
+      "pattern": "-yyyy-MM-dd.log",
+      "compress": true,
+      "daysToKeep": 30
+    },
+    "errorFile": {
+      "type": "dateFile",
+      "filename": "logs/error.log",
+      "pattern": "-yyyy-MM-dd.log",
+      "compress": true,
+      "daysToKeep": 30
+    },
+    "errors": {
+      "type": "logLevelFilter",
+      "level": "ERROR",
+      "appender": "errorFile"
+    }
+  },
+  "categories": {
+    "default": {
+      "appenders": [
+        "out",
+        "app",
+        "errors"
+      ],
+      "level": "debug"
+    }
+  }
+}
